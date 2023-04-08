@@ -28,11 +28,9 @@ const getForecast = (
       }
       const { status } = error.response;
       if (status === 404) {
-        console.error("Location is not valid", error);
         setErrorMessage("No such town or city, try again!");
       }
       if (status === 500) {
-        console.error("Server error", error);
         setErrorMessage("Oops, server error, try again later!");
       }
     });
