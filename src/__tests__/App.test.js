@@ -10,7 +10,7 @@ describe("App", () => {
   });
 
   test("Renders as expected", () => {
-    Date.now = jest.fn(() => 1482363367071);
+    Date.now = jest.fn(() => 1680964077162);
     const rendered = renderer.create(<App />);
 
     expect(rendered).toMatchSnapshot();

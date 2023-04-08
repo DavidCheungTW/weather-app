@@ -80,4 +80,4 @@ npm test
 
 ## Author
 
-David Cheung
+[David Cheung](https://www.linkedin.com/in/david-cheung-473597199/)

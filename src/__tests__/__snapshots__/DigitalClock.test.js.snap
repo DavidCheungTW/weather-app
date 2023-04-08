@@ -5,7 +5,7 @@ exports[`DigitalClock Renders as expected 1`] = `
   className="digital-clock"
 >
    
-  11:36:07 PM
+  3:27:57 PM
    
 </div>
 `;
