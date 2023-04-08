@@ -21,7 +21,7 @@ function ForecastDetails({ forecast }) {
 
       <div className="forecast-details__humidity">Humidity: {humidity}</div>
       <div className="forecast-details__wind">
-        Wind: {wind.speed}mph {wind.direction}
+        Wind: {wind.speed}mph {wind.direction.toUpperCase()}
       </div>
     </div>
   );
