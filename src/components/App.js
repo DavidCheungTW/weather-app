@@ -28,13 +28,13 @@ function App() {
 
   useEffect(() => {
     getForecast(
-      searchText,
+      "Manchester",
       setSelectedDate,
       setForecasts,
       setLocation,
       setErrorMessage
     );
-  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+  }, []);
 
   const handleCitySearch = () => {
     getForecast(

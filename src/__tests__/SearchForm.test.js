@@ -1,13 +1,13 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
-import SearchForm from "../components/SearchForm";
 import renderer from "react-test-renderer";
+import SearchForm from "../components/SearchForm";
 
 describe("SearchForm", () => {
   const validProps = {
     searchText: "Manchester",
-    setSearchText: () => {},
-    onSubmit: () => {},
+    setSearchText: jest.fn(),
+    onSubmit: jest.fn(),
   };
 
   test("Renders as expected", () => {
@@ -18,6 +18,7 @@ describe("SearchForm", () => {
         onSubmit={validProps.onSubmit}
       />
     );
+
     expect(rendered).toMatchSnapshot();
   });
 
@@ -42,8 +43,8 @@ describe("SearchForm", () => {
         onSubmit={validProps.onSubmit}
       />
     );
-
     const buttons = screen.getAllByRole("button");
+
     expect(buttons).toHaveLength(1);
     expect(buttons[0]).toHaveTextContent("Search");
   });

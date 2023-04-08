@@ -1,5 +1,4 @@
 import React from "react";
-import { render, screen } from "@testing-library/react";
 import DigitalClock from "../components/DigitalClock";
 import renderer from "react-test-renderer";
 

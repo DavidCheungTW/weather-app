@@ -10,7 +10,7 @@ exports[`SearchForm Renders as expected 1`] = `
     value="Manchester"
   />
   <button
-    onClick={[Function]}
+    onClick={[MockFunction]}
     type="submit"
   >
     Search

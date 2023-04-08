@@ -1,23 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
+import dateOrdinal from "../utilities/dateOrdinal";
 import "../styles/forecast-details.css";
-
-function dateOrdinal(d) {
-  let subfix;
-  if (d === "31" || d === "21" || d === "01") {
-    subfix = "st";
-  } else if (d === "22" || d === "02") {
-    subfix = "nd";
-  } else if (d === "23" || d === "03") {
-    subfix = "rd";
-  } else {
-    subfix = "th";
-  }
-  if (d.charAt(0) === "0") {
-    return d.charAt(1) + subfix;
-  }
-  return d + subfix;
-}
 
 function ForecastDetails({ forecast }) {
   const { date, temperature, wind, humidity } = forecast;
@@ -26,6 +10,7 @@ function ForecastDetails({ forecast }) {
   const formattedDate = `${tempDate2[0]} ${dateOrdinal(tempDate2[2])} ${
     tempDate2[1]
   }`;
+
   return (
     <div className="forecast-details" data-testid="forecast-details">
       <div className="forecast-details__date">{formattedDate}</div>
@@ -36,7 +21,7 @@ function ForecastDetails({ forecast }) {
 
       <div className="forecast-details__humidity">Humidity: {humidity}</div>
       <div className="forecast-details__wind">
-        Wind: {wind.speed}mph {wind.direction.toUpperCase()}
+        Wind: {wind.speed}mph {wind.direction}
       </div>
     </div>
   );

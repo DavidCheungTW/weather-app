@@ -1,7 +1,7 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
-import ForecastSummaries from "../components/ForecastSummaries";
 import renderer from "react-test-renderer";
+import ForecastSummaries from "../components/ForecastSummaries";
 
 describe("ForecastSummaries", () => {
   const validProps = {
@@ -52,7 +52,7 @@ describe("ForecastSummaries", () => {
         icon: 721,
       },
     ],
-    onForecastSelect: () => {},
+    onForecastSelect: jest.fn(),
   };
 
   test("Renders as expected", () => {
@@ -74,6 +74,7 @@ describe("ForecastSummaries", () => {
       />
     );
     const items = screen.getAllByTestId("forecast-summary");
+
     expect(items).toHaveLength(5);
   });
 
@@ -85,6 +86,7 @@ describe("ForecastSummaries", () => {
       />
     );
     const buttons = screen.getAllByRole("button");
+
     expect(buttons).toHaveLength(5);
   });
 });

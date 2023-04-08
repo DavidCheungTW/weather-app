@@ -1,10 +1,10 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
-import ForecastSummary from "../components/ForecastSummary";
 import renderer from "react-test-renderer";
+import ForecastSummary from "../components/ForecastSummary";
 
 function decode(str) {
-  let txt = document.createElement("textarea");
+  const txt = document.createElement("textarea");
   txt.innerHTML = str;
   return txt.value;
 }
@@ -18,7 +18,7 @@ describe("ForecastSummary", () => {
       min: 12,
       max: 22,
     },
-    onSelect: () => {},
+    onSelect: jest.fn(),
   };
 
   test("Renders as expected", () => {
@@ -31,6 +31,7 @@ describe("ForecastSummary", () => {
         onSelect={validProps.onSelect}
       />
     );
+
     expect(rendered).toMatchSnapshot();
   });
 
@@ -44,6 +45,7 @@ describe("ForecastSummary", () => {
         onSelect={validProps.onSelect}
       />
     );
+
     expect(document.querySelector(".forecast-summary")).toBeTruthy();
     expect(document.querySelector(".forecast-summary__date")).toBeTruthy();
     expect(document.querySelector(".forecast-summary__icon")).toBeTruthy();
@@ -65,10 +67,10 @@ describe("ForecastSummary", () => {
         onSelect={validProps.onSelect}
       />
     );
+
     expect(screen.getByText("Mon 30th Apr")).toBeTruthy();
     expect(screen.getByText(`22${decode("&deg;C")}`)).toBeTruthy();
     expect(screen.getByText("Stub description")).toBeTruthy();
-    // expect(getByTestId("forecast-icon")).toHaveTextContent("200");
 
     expect(screen.getByText("Mon 30th Apr")).toBeInstanceOf(HTMLDivElement);
     expect(screen.getByText(`22${decode("&deg;C")}`)).toBeInstanceOf(

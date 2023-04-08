@@ -1,7 +1,8 @@
 import { render, screen, waitFor } from "@testing-library/react";
-import App from "../components/App";
 import renderer from "react-test-renderer";
 import axios from "axios";
+import React from "react";
+import App from "../components/App";
 
 describe("App", () => {
   beforeEach(() => {
@@ -22,7 +23,7 @@ describe("App", () => {
     expect(headings[0]).toHaveTextContent("FIVE DAY FORECAST");
   });
 
-  test("renders learn react link with spy axios", async () => {
+  test("Renders location once data has been fetched from API", async () => {
     const mAxiosResponse = {
       data: {
         location: {

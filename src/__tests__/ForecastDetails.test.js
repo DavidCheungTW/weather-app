@@ -1,7 +1,7 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
-import ForecastDetails from "../components/ForecastDetails";
 import renderer from "react-test-renderer";
+import ForecastDetails from "../components/ForecastDetails";
 
 describe("ForecastDetails", () => {
   const validProps = {
@@ -25,6 +25,7 @@ describe("ForecastDetails", () => {
 
   test("Assert all classname elements are present", () => {
     render(<ForecastDetails forecast={validProps} />);
+
     expect(document.querySelector(".forecast-details")).toBeTruthy();
     expect(document.querySelector(".forecast-details__date")).toBeTruthy();
     expect(
@@ -37,7 +38,6 @@ describe("ForecastDetails", () => {
   test("Assert all props elements are present", () => {
     render(<ForecastDetails forecast={validProps} />);
 
-    // We need at least 2 tests. One for snapshot testing, and one for values
     expect(screen.getByText("Mon 30th Apr")).toBeTruthy();
     expect(screen.getByText("Temperature: 12°C - 22°C")).toBeTruthy();
     expect(screen.getByText("Humidity: 50")).toBeTruthy();
