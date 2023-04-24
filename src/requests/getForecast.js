@@ -23,7 +23,7 @@ const getForecast = (
     .catch((error) => {
       setForecasts([]);
       if (error.response === undefined) {
-        console.log(error);
+        setErrorMessage("Undefined error, try again!");
         return;
       }
       const { status } = error.response;
